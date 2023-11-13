@@ -1,4 +1,4 @@
-package com.example.voyager
+package com.example.voyager.tab2
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box

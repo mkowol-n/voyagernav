@@ -1,4 +1,4 @@
-package com.example.voyager
+package com.example.voyager.tab1
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -13,7 +13,7 @@ import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 
-class GreenScreen: Screen {
+class BlackScreen: Screen {
     @Composable
     override fun Content() {
         Screen()
@@ -23,13 +23,17 @@ class GreenScreen: Screen {
 
 @Composable
 private fun Screen() {
-    val navigator = LocalNavigator.currentOrThrow.parent!!.parent!!
-    Column(modifier = Modifier
-        .fillMaxSize()
-        .background(Color.Green)) {
-        Button(onClick = { navigator.push(YellowScreen()) }) {
-            Text(text = "click me")
+    val navigator = LocalNavigator.currentOrThrow
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.Black)
+    ) {
+        Button(onClick = {
+            navigator.push(GreenScreen())
+        }) {
+            Text(text = "click me", color = Color.Yellow)
         }
-        Text(text = "Green Screen", fontSize = 40.sp)
+        Text(text = "Black Screen", fontSize = 40.sp, color = Color.White)
     }
 }
